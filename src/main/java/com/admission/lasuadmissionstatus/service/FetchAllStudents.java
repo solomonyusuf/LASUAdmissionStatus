@@ -19,8 +19,15 @@ public class FetchAllStudents {
     @GetMapping("/all-students")
     public String GetAllStudents(Model model)
     {
-        var students = _student.findAll();
-        model.addAttribute("students", students);
+        try
+        {
+            var students = _student.findAll();
+            model.addAttribute("students", students);
+        }
+        catch(Exception ex)
+        {
+            System.out.println(ex);
+        }
 
         return "students/listing";
     }
