@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="admission status checker.css">
+    <title>University Admission Screening Result Form</title>
+</head>
+<body>
+    <div class="container">
+        <h1>University Admission Screening Result Form</h1>
+    <form action="/submit" method="post">
+            <h2>Bio-Data</h2>
+            <div class="form-group">
+                <label for="name">Name:</label>
+                <input type="text" name="name" id="name" required>
+            </div>
+            <div class="form-group">
+                <label for="disability">Disability:</label>
+                <select name="disability" id="disability">
+                    <option value="yes">Yes</option>
+                    <option value="no" selected>No</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="state">State of Origin:</label>
+                <input type="text" name="state" id="state" required>
+            </div>
+            <div class="form-group">
+                <label for="lga">LGA:</label>
+                <input type="text" name="lga" id="lga" required>
+            </div>
+            <div class="form-group">
+                <label for="dob">Date of Birth:</label>
+                <input type="date" name="dob" id="dob" required>
+            </div>        
+     </div>        
+        <h2>UTME Details</h2>
+        <ul>
+            <li>
+                <label for="utmeNumber">UTME Number:</label>
+                <input type="text" name="utmeNumber" id="utmeNumber" required>
+            </li>
+            <li>
+                <label for="course">Course of Interest:</label>
+                <select name="course" id="course_of_interest" required>
+                    <option value=""></option> 
+                    <option value="ACCOUNTING">ACCOUNTING</option>
+                    <option value="AERONAUTIC & ASTRONAUTIC ENGINEERING" >AERONAUTIC & ASTRONAUTIC ENGINEERING</option>
+                    <option value="AGRICULTURE" >AGRICULTURE</option>
+                    <option value="ARABIC STUDIES" >ARABIC STUDIES</option>
+                    <option value="BANKING & FINANCE" >BANKING & FINANCE</option>
+                    <option value="BIOCHEMISTRY" >BIOCHEMISTRY</option>
+                    <option value="BOTANY" >BOTANY</option>
+                    <option value="BUSINESS ADMINISTRATION" >BUSINESS ADMINISTRATION</option>
+                    <option value="CHEMICAL & POLYMER ENGINEERING" >CHEMICAL & POLYMER ENGINEERING</option>
+                    <option value="CHEMISTRY" >CHEMISTRY</option>
+                    <option value="CHRISTIAN RELIGIOUS STUDIES" >CHRISTIAN RELIGIOUS STUDIES</option>
+                    <option value="COMPUTER SCIENCE" >COMPUTER SCIENCE</option>
+                    <option value="DRAMA/DRAMATIC/PERFORMING ARTS" >DRAMA/DRAMATIC/PERFORMING ARTS</option>
+                    <option value="ECONOMICS" >ECONOMICS</option>
+                    <option value="ELECTRONICS & COMPUTER ENGINEERING" >ELECTRONICS & COMPUTER ENGINEERING</option>
+                    <option value="ENGLISH LANGUAGE" >ENGLISH LANGUAGE</option>
+                    <option value="FINE/APPLIED ARTS" >FINE/APPLIED ARTS</option>
+                    <option value="LAW" >LAW</option>
+                    <option value="MICROBIOLOGY" >MICROBIOLOGY</option>
+                    <option value="PHYSICS" >PHYSICS</option>
+                </select>
+            </li>
+            <li>
+                <h3>Subjects</h3>
+                <table>
+                    <tr>
+                        <th>Subject</th>
+                        <th>Score</th>
+                    </tr>
+                    <tr>
+                        <td>
+                            <select name="subject1">
+                                <option value="" selected disabled>Select Subject</option>
+                                <option value="English Language" selected>English Language (Compulsory)</option>
+                                <option value="Literature in English">Literature in English</option>
+                                <option value="Government">Government</option>
+                                <option value="History">History</option>
+                                <option value="Christian Religious Studies/Islamic Studies">Christian Religious Studies/Islamic Studies</option>
+                                <option value="Economics">Economics</option>
+                                <option value="Geography">Geography</option>
+                                <option value="Commerce">Commerce</option>
+                                <option value="Mathematics">Mathematics</option>
+                                <option value="Physics">Physics</option>
+                                <option value="Chemistry">Chemistry</option>
+                                <option value="Biology">Biology</option>
+                                <option value="Further Mathematics">Further Mathematics</option>
+                                <option value="Computer Studies/Science">Computer Studies/Science</option>
+                            </select>
+                        </td>
+                        <td><input type="number" name="subject1_score" min="0" max="100" required></td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <select name="subject2">
+                                <option value="" selected disabled>Select Subject</option>
+                                <option value="Literature in English">Literature in English</option>
+                                <option value="Government">Government</option>
+                                <option value="History">History</option>
+                                <option value="Christian Religious Studies/Islamic Studies">Christian Religious Studies/Islamic Studies</option>
+                                <option value="Economics">Economics</option>
+                                <option value="Geography">Geography</option>
+                                <option value="Commerce">Commerce</option>
+                                <option value="Mathematics">Mathematics</option>
+                                <option value="Physics">Physics</option>
+                                <option value="Chemistry">Chemistry</option>
+                                <option value="Biology">Biology</option>
+                                <option value="Further Mathematics">Further Mathematics</option>
+                                <option value="Computer Studies/Science">Computer Studies/Science</option>
+                            </select>
+                        </td>
+                        <td><input type="number" name="subject2_score" min="0" max="100"></td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <select name="subject3">
+                                <option value="" selected disabled>Select Subject</option>
+                                <option value="Literature in English">Literature in English</option>
+                                <option value="Government">Government</option>
+                                <option value="History">History</option>
+                                <option value="Christian Religious Studies/Islamic Studies">Christian Religious Studies/Islamic Studies</option>
+                                <option value="Economics">Economics</option>
+                                <option value="Geography">Geography</option>
+                                <option value="Commerce">Commerce</option>
+                                <option value="Mathematics">Mathematics</option>
+                                <option value="Physics">Physics</option>
+                                <option value="Chemistry">Chemistry</option>
+                                <option value="Biology">Biology</option>
+                                <option value="Further Mathematics">Further Mathematics</option>
+                                <option value="Computer Studies/Science">Computer Studies/Science</option>
+                            </select>
+                        </td>
+                        <td><input type="number" name="subject3_score" min="0" max="100"></td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <select name="subject4">
+                                <option value="" selected disabled>Select Subject</option>
+                                <option value="Literature in English">Literature in English</option>
+                                <option value="Government">Government</option>
+                                <option value="History">History</option>
+                                <option value="Christian Religious Studies/Islamic Studies">Christian Religious Studies/Islamic Studies</option>
+                                <option value="Economics">Economics</option>
+                                <option value="Geography">Geography</option>
+                                <option value="Commerce">Commerce</option>
+                                <option value="Mathematics">Mathematics</option>
+                                <option value="Physics">Physics</option>
+                                <option value="Chemistry">Chemistry</option>
+                                <option value="Biology">Biology</option>
+                                <option value="Further Mathematics">Further Mathematics</option>
+                                <option value="Computer Studies/Science">Computer Studies/Science</option>
+                            </select>
+                        </td>
+                        <td><input type="number" name="subject4_score" min="0" max="100"></td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <select name="subject5">
+                                <option value="" selected disabled>Select Subject</option>
+                                <option value="Literature in English">Literature in English</option>
+                                <option value="Government">Government</option>
+                                <option value="History">History</option>
+                                <option value="Christian Religious Studies/Islamic Studies">Christian Religious Studies/Islamic Studies</option>
+                                <option value="Economics">Economics</option>
+                                <option value="Geography">Geography</option>
+                                <option value="Commerce">Commerce</option>
+                                <option value="Mathematics">Mathematics</option>
+                                <option value="Physics">Physics</option>
+                                <option value="Chemistry">Chemistry</option>
+                                <option value="Biology">Biology</option>
+                                <option value="Further Mathematics">Further Mathematics</option>
+                                <option value="Computer Studies/Science">Computer Studies/Science</option>
+                            </select>
+                        </td>
+                        <td><input type="number" name="subject5_score" min="0" max="100"></td>
+                    </tr>
+                </table>
+                
+            </li>
+            <li>
+                <label for="utmeScore">UTME Score:</label>
+                <input type="number" name="utmeScore" id="utmeScore" readonly>
+            </li>
+            <li>
+                <label for="utmePoint">UTME Point:</label>
+                <input type="text" name="utmePoint" id="utmePoint" readonly>
+            </li>
+        </ul>
+        <h2>O-Level Details</h2>
+            <div id="o-level-details">
+                <div>
+                    <label for="subject1">Exam Year</label>
+                    <input type="text" name="subject1" id="subject1" required>
+                </div>
+                <div>
+                    <label for="examScore1">Exam Type</label>
+                    <select name="examType1" id="examType1">
+                        <option value="wassceMayJun">WASSCE May/June</option>
+                        <option value="necoJunJul">NECO Jun/Jul</option>
+                    </select>
+                </div>
+            </div>
+            <button type="button" onclick="addOLevelDetails()">Add O-Level Details</button>
+            
+            <h2>O-Level Details</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Subject</th>
+                        <th>Exam Score</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                <tbody id="o-level-details-table">
+                    <!-- O-Level Details Input Containers will be added here -->
+                </tbody>
+            </table>
+            
+            <button type="submit">Submit</button>
+        </form>
+    </div>
+    <input type="submit" value="Submit">
+</form>
+<script src="admission status checker.js"></script>
+</body>
+</html>
