@@ -1,65 +1,34 @@
-package com.admission.lasuadmissionstatus.models;
+package com.admission.lasuadmissionstatus.dtos;
 
-import jakarta.persistence.*;
+import org.springframework.web.multipart.MultipartFile;
 
-@Entity
-@Table(name="Students")
-public class Student {
-    @jakarta.persistence.Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    public int Id ;
-    public String image;
+public class StudentDTO {
+    public MultipartFile image;
+    public MultipartFile jamb_result;
 
-    public String jamb_result;
-    public String waec_result;
-
-    public String name;
-    public String soo;
-    public String lga;
-    public String sex;
-    public String age;
-    public String utme_number;
-    public String preferred_course;
-    public int utme_score;
-    public String exam_type;
-    public String exam_year;
-    public String exam_number;
-    public String crs;
-    public String civic;
-    public String english;
-    public String economics;
-    public String lit;
-    public String maths;
-    public String govt;
-    public String getJamb_result() {
+    public MultipartFile getJamb_result() {
         return jamb_result;
     }
 
-    public void setJamb_result(String jamb_result) {
+    public void setJamb_result(MultipartFile jamb_result) {
         this.jamb_result = jamb_result;
     }
 
-    public String getWaec_result() {
+    public MultipartFile getWaec_result() {
         return waec_result;
     }
 
-    public void setWaec_result(String waec_result) {
+    public void setWaec_result(MultipartFile waec_result) {
         this.waec_result = waec_result;
     }
 
-    public String getImage() {
+    public MultipartFile waec_result;
+    public MultipartFile getImage() {
         return image;
     }
 
-    public void setImage(String image) {
+    public void setImage(MultipartFile image) {
         this.image = image;
-    }
-    public int getId() {
-        return Id;
-    }
-
-    public void setId(int id) {
-        Id = id;
     }
 
     public String getName() {
@@ -205,4 +174,23 @@ public class Student {
     public void setGovt(String govt) {
         this.govt = govt;
     }
+
+    public String name;
+    public String soo;
+    public String lga;
+    public String sex;
+    public String age;
+    public String utme_number;
+    public String preferred_course;
+    public int utme_score;
+    public String exam_type;
+    public String exam_year;
+    public String exam_number;
+    public String crs;
+    public String civic;
+    public String english;
+    public String economics;
+    public String lit;
+    public String maths;
+    public String govt;
 }

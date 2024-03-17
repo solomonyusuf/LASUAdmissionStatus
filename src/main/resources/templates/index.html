@@ -19,13 +19,13 @@
 <div class="mb-3">
    <div class="card shadow">
        <div class="card-body">
-           <form class=" row g-3 needs-validation" novalidate>
+           <form method="post" action="/create-student" enctype="multipart/form-data" th:object="${dto}" class=" row g-3 needs-validation" novalidate>
                <br/>
 
                <h3 class="">PERSONAL DETAILS</h3>
                <div class="col-md-4">
                    <label for="validationCustom01" class="form-label">Full Name</label>
-                   <input type="text" class="form-control" id="validationCustom01" placeholder="Mark Davis luo" required>
+                   <input th:field="${dto.name}" type="text" class="form-control" id="validationCustom01" placeholder="Mark Davis luo" required>
                    <div class="invalid-feedback">
                        Please provide a valid name.
                    </div>
@@ -35,7 +35,7 @@
                </div>
                <div class="col-md-4">
                    <label for="validationCustom02" class="form-label">LGA</label>
-                   <input type="text" class="form-control" id="validationCustom02"  required>
+                   <input th:field="${dto.lga}" type="text" class="form-control" id="validationCustom02"  required>
                    <div class="invalid-feedback">
                        Please provide a valid LGA.
                    </div>
@@ -45,10 +45,9 @@
                </div>
                <div class="col-md-4">
                    <label for="validationCustom02" class="form-label">Sex</label>
-                   <select type="text" class="form-control" id="validationCustom02"  required>
-                       <option value="">Select One</option>
-                       <option>Male</option>
-                       <option>Female</option>
+                   <select th:field="${dto.sex}" class="form-control" id="validationCustom02"  required>
+                       <option th:value="Male" th:text="Male"></option>
+                       <option th:value="Female" th:text="Female"></option>
                    </select>
                    <div class="invalid-feedback">
                        Please provide a valid sex.
@@ -59,7 +58,18 @@
                </div>
                <div class="col-md-4">
                    <label for="validationCustom02" class="form-label">Age</label>
-                   <input type="text" class="form-control" id="validationCustom02"  required>
+                   <input th:field="${dto.age}" type="text" class="form-control" id="validationCustom02"  required>
+                   <div class="invalid-feedback">
+                       Please provide a valid input.
+                   </div>
+                   <div class="valid-feedback">
+                       Looks good!
+                   </div>
+
+               </div>
+               <div class="col-md-4">
+                   <label for="validationCustom02" class="form-label">State Of Origin</label>
+                   <input th:field="${dto.soo}" type="text" class="form-control" id="validationCustom02"  required>
                    <div class="invalid-feedback">
                        Please provide a valid input.
                    </div>
@@ -70,7 +80,7 @@
                </div>
                <div class="col-md-4">
                    <label for="validationCustom02" class="form-label">Passport Image (jpg or png MAX 3mb)</label>
-                   <input type="file" class="form-control" id="validationCustom02"  required>
+                   <input th:field="${dto.image}" type="file" class="form-control" id="validationCustom02"  required>
                    <div class="invalid-feedback">
                        Please provide a valid image.
                    </div>
@@ -80,19 +90,10 @@
                </div>
                <br/>
                <h3 class="">UTME DETAILS</h3>
-               <!--<div class="col-md-4">
-                   <label for="validationCustomUsername" class="form-label">Username</label>
-                   <div class="input-group has-validation">
-                       <span class="input-group-text" id="inputGroupPrepend">@</span>
-                       <input type="text" class="form-control" id="validationCustomUsername" aria-describedby="inputGroupPrepend" required>
-                       <div class="invalid-feedback">
-                           Please choose a username.
-                       </div>
-                   </div>
-               </div>-->
+
                <div class="col-md-4">
                    <label for="validationCustom02" class="form-label">UTME Number</label>
-                   <input type="text" class="form-control" id="validationCustom02"  required>
+                   <input th:field="${dto.utme_number}" type="text" class="form-control" id="validationCustom02"  required>
                    <div class="invalid-feedback">
                        Please provide a number.
                    </div>
@@ -103,29 +104,8 @@
 
                <div class="col-md-4">
                    <label for="validationCustom02" class="form-label">Preferred Course</label>
-                   <select class="form-control" id="validationCustom02"  required>
-                       <option value="">Select One</option>
-                       <option value="ACCOUNTING">ACCOUNTING</option>
-                       <option value="AERONAUTIC &amp; ASTRONAUTIC ENGINEERING">AERONAUTIC &amp; ASTRONAUTIC ENGINEERING</option>
-                       <option value="AGRICULTURE">AGRICULTURE</option>
-                       <option value="ARABIC STUDIES">ARABIC STUDIES</option>
-                       <option value="BANKING &amp; FINANCE">BANKING &amp; FINANCE</option>
-                       <option value="BIOCHEMISTRY">BIOCHEMISTRY</option>
-                       <option value="BOTANY">BOTANY</option>
-                       <option value="BUSINESS ADMINISTRATION">BUSINESS ADMINISTRATION</option>
-                       <option value="CHEMICAL &amp; POLYMER ENGINEERING">CHEMICAL &amp; POLYMER ENGINEERING</option>
-                       <option value="CHEMISTRY">CHEMISTRY</option>
-                       <option value="CHRISTIAN RELIGIOUS STUDIES">CHRISTIAN RELIGIOUS STUDIES</option>
-                       <option value="COMPUTER SCIENCE">COMPUTER SCIENCE</option>
-                       <option value="DRAMA/DRAMATIC/PERFORMING ARTS">DRAMA/DRAMATIC/PERFORMING ARTS</option>
-                       <option value="ECONOMICS">ECONOMICS</option>
-                       <option value="ELECTRONICS &amp; COMPUTER ENGINEERING">ELECTRONICS &amp; COMPUTER ENGINEERING</option>
-                       <option value="ENGLISH LANGUAGE">ENGLISH LANGUAGE</option>
-                       <option value="FINE/APPLIED ARTS">FINE/APPLIED ARTS</option>
-                       <option value="LAW">LAW</option>
-                       <option value="MICROBIOLOGY">MICROBIOLOGY</option>
-                       <option value="PHYSICS">PHYSICS</option>
-                   </select>
+                   <input th:field="${dto.preferred_course}" type="text" class="form-control" id="validationCustom02"  required>
+
                    <div class="invalid-feedback">
                        Please provide a course.
                    </div>
@@ -133,287 +113,269 @@
                        Looks good!
                    </div>
                </div>
-               <div class="col-md-4">
-                   <label for="validationCustom02" class="form-label">Registration Date/Year</label>
-                   <input type="date" class="form-control" id="validationCustom02"  required>
-                   <div class="valid-feedback">
-                       Looks good!
-                   </div>
-               </div>
-               <div class="col-md-4">
+
+                 <div class="col-md-4">
                    <label for="validationCustom02" class="form-label">UTME Score</label>
-                   <input type="number" class="form-control" id="validationCustom02"  required>
+                   <input th:field="${dto.utme_score}" type="number" class="form-control" id="validationCustom02"  required>
                    <div class="valid-feedback">
                        Looks good!
                    </div>
                </div>
-               <div class="col-md-4">
-                   <label for="validationCustom02" class="form-label">UTME Result (jpg or png MAX 3mb)</label>
-                   <input type="file" class="form-control" id="validationCustom02"  required>
-                   <div class="valid-feedback">
-                       Looks good!
-                   </div>
-                   <div class="invalid-feedback">
-                       select a valid image
-                   </div>
-               </div>
-               <br/>
-               <h3 class="">OLEVEL DETAILS</h3>
-
-
-               <div class="col-md-4">
-                   <label for="validationCustom02" class="form-label">Exam Type</label>
-                   <select class="form-control" value="" id="validationCustom02" >
-                       <option value="wassceMayJun">WASSCE May/June</option>
-                       <option value="necoJunJul">NECO Jun/Jul</option>
-                   </select>
-                   <div class="valid-feedback">
-                       Looks good!
-                   </div>
-                   <div class="invalid-feedback">
-                      please select a valid input
-                   </div>
-               </div>
-               <div class="col-md-3">
-                   <label for="validationCustom02" class="form-label">Exam Year</label>
-                   <input type="text" class="form-control" value="eg 2023" id="validationCustom02"  required>
-                   <div class="valid-feedback">
-                       Looks good!
-                   </div>
-                   <div class="invalid-feedback">
-                       please enter a valid input
-                   </div>
-               </div>
-               <div class="col-md-3">
-                   <label for="validationCustom02" class="form-label">Exam Number</label>
-                   <input type="text" class="form-control"   id="validationCustom02"   required>
-                   <div class="valid-feedback">
-                       Looks good!
-                   </div>
-                   <div class="invalid-feedback">
-                       please enter a valid input
-                   </div>
-               </div>
-               <br/>
-
-               <div class="col-md-4">
-                   <label for="validationCustom02" class="form-label">Subject</label>
-                   <input type="text" class="form-control" value="English" id="validationCustom02"  disabled required>
-                   <div class="valid-feedback">
-                       Looks good!
-                   </div>
-               </div>
-               <div class="col-md-4">
-                   <label for="validationCustom02" class="form-label">Grade</label>
-                   <select class="form-control" id="validationCustom02"  required>
-                       <option value="">Select</option>
-                       <option>A1</option>
-                       <option>B2</option>
-                       <option>B3</option>
-                       <option>C4</option>
-                       <option>C5</option>
-                       <option>C6</option>
-                       <option>D7</option>
-                       <option>E8</option>
-                       <option>P</option>
-                       <option>F</option>
-                   </select>
-
-                   <div class="valid-feedback">
-                       Looks good!
-                   </div>
-                   <div class="invalid-feedback">
-                       select a valid grade
-                   </div>
-               </div><br/>
-
                 <div class="col-md-4">
-                   <label for="validationCustom02" class="form-label">Subject</label>
-                   <input type="text" class="form-control" value="Mathematics" id="validationCustom02"  disabled required>
-                   <div class="valid-feedback">
-                       Looks good!
-                   </div>
-               </div>
-               <div class="col-md-4">
-                   <label for="validationCustom02" class="form-label">Grade</label>
-                   <select class="form-control" id="validationCustom02"  required>
-                       <option value="">Select</option>
-                       <option>A1</option>
-                       <option>B2</option>
-                       <option>B3</option>
-                       <option>C4</option>
-                       <option>C5</option>
-                       <option>C6</option>
-                       <option>D7</option>
-                       <option>E8</option>
-                       <option>P</option>
-                       <option>F</option>
-                   </select>
+                  <label for="validationCustom02" class="form-label">UTME Result (jpg or png MAX 3mb)</label>
+                  <input th:field="${dto.jamb_result}" type="file" class="form-control" id="validationCustom02"  required>
+                  <div class="valid-feedback">
+                      Looks good!
+                  </div>
+                  <div class="invalid-feedback">
+                      select a valid image
+                  </div>
+              </div>
+              <br/>
+              <h3 class="">OLEVEL DETAILS</h3>
 
-                   <div class="valid-feedback">
-                       Looks good!
-                   </div>
-                   <div class="invalid-feedback">
-                       select a valid grade
-                   </div>
-               </div><br/>
 
-               <div class="col-md-4">
-                   <label for="validationCustom02" class="form-label">Subject</label>
-                   <input type="text" class="form-control" value="Economics" id="validationCustom02"  disabled required>
-                   <div class="valid-feedback">
-                       Looks good!
-                   </div>
-               </div>
-               <div class="col-md-4">
-                   <label for="validationCustom02" class="form-label">Grade</label>
-                   <select class="form-control" id="validationCustom02"  required>
-                       <option value="">Select</option>
-                       <option>A1</option>
-                       <option>B2</option>
-                       <option>B3</option>
-                       <option>C4</option>
-                       <option>C5</option>
-                       <option>C6</option>
-                       <option>D7</option>
-                       <option>E8</option>
-                       <option>P</option>
-                       <option>F</option>
-                   </select>
+                 <div class="col-md-3">
+                     <label for="validationCustom02" class="form-label">Exam Type</label>
 
-                   <div class="valid-feedback">
-                       Looks good!
-                   </div>
-                   <div class="invalid-feedback">
-                       select a valid grade
-                   </div>
-               </div><br/>
+                     <select th:field="${dto.exam_type}" class="form-control" id="validationCustom02"  required>
+                         <option th:value="'WASSCE May/June'"  >WASSCE May/June</option>
+                         <option th:value="'NECO Jun/Jul'"  >NECO Jun/Jul</option>
+                     </select>
+
+                     <div class="valid-feedback">
+                         Looks good!
+                     </div>
+                     <div class="invalid-feedback">
+                        please select a valid input
+                     </div>
+                 </div>
+                <div class="col-md-2">
+                     <label for="validationCustom02" class="form-label">Exam Year</label>
+                     <input th:field="${dto.exam_year}" type="text" class="form-control" value="eg 2023" id="validationCustom02"  required>
+                     <div class="valid-feedback">
+                         Looks good!
+                     </div>
+                     <div class="invalid-feedback">
+                         please enter a valid input
+                     </div>
+                 </div>
+                 <div class="col-md-3">
+                     <label for="validationCustom02" class="form-label">Exam Number</label>
+                     <input th:field="${dto.exam_number}" type="text" class="form-control"   id="validationCustom02"   required>
+                     <div class="valid-feedback">
+                         Looks good!
+                     </div>
+                     <div class="invalid-feedback">
+                         please enter a valid input
+                     </div>
+                 </div>
+                 <br/>
 
                <div class="col-md-4">
-                   <label for="validationCustom02" class="form-label">Subject</label>
-                   <input type="text" class="form-control" value="Civic" id="validationCustom02"  disabled required>
-                   <div class="valid-feedback">
-                       Looks good!
-                   </div>
-               </div>
-               <div class="col-md-4">
-                   <label for="validationCustom02" class="form-label">Grade</label>
-                   <select class="form-control" id="validationCustom02"  required>
-                       <option value="">Select</option>
-                       <option>A1</option>
-                       <option>B2</option>
-                       <option>B3</option>
-                       <option>C4</option>
-                       <option>C5</option>
-                       <option>C6</option>
-                       <option>D7</option>
-                       <option>E8</option>
-                       <option>P</option>
-                       <option>F</option>
-                   </select>
+                  <label for="validationCustom02" class="form-label">Subject</label>
+                  <input type="text" class="form-control" value="English" id="validationCustom02"  disabled required>
+                  <div class="valid-feedback">
+                      Looks good!
+                  </div>
+              </div>
+                <div class="col-md-4">
+                        <label for="validationCustom02" class="form-label">Grade</label>
 
-                   <div class="valid-feedback">
-                       Looks good!
-                   </div>
-                   <div class="invalid-feedback">
-                       select a valid grade
-                   </div>
-               </div><br/>
-
-               <div class="col-md-4">
-                   <label for="validationCustom02" class="form-label">Subject</label>
-                   <input type="text" class="form-control" value="CRS" id="validationCustom02"  disabled required>
-                   <div class="valid-feedback">
-                       Looks good!
-                   </div>
-               </div>
-               <div class="col-md-4">
-                   <label for="validationCustom02" class="form-label">Grade</label>
-                   <select class="form-control" id="validationCustom02"  required>
-                       <option value="">Select</option>
-                       <option>A1</option>
-                       <option>B2</option>
-                       <option>B3</option>
-                       <option>C4</option>
-                       <option>C5</option>
-                       <option>C6</option>
-                       <option>D7</option>
-                       <option>E8</option>
-                       <option>P</option>
-                       <option>F</option>
-                   </select>
-
-                   <div class="valid-feedback">
-                       Looks good!
-                   </div>
-                   <div class="invalid-feedback">
-                       select a valid grade
-                   </div>
-               </div><br/>
-
-               <div class="col-md-4">
-                   <label for="validationCustom02" class="form-label">Subject</label>
-                   <input type="text" class="form-control" value="Literature" id="validationCustom02"  disabled required>
-                   <div class="valid-feedback">
-                       Looks good!
-                   </div>
-               </div>
-               <div class="col-md-4">
-                   <label for="validationCustom02" class="form-label">Grade</label>
-                   <select class="form-control" id="validationCustom02"  required>
-                       <option value="">Select</option>
-                       <option>A1</option>
-                       <option>B2</option>
-                       <option>B3</option>
-                       <option>C4</option>
-                       <option>C5</option>
-                       <option>C6</option>
-                       <option>D7</option>
-                       <option>E8</option>
-                       <option>P</option>
-                       <option>F</option>
-                   </select>
-
-                   <div class="valid-feedback">
-                       Looks good!
-                   </div>
-                   <div class="invalid-feedback">
-                       select a valid grade
-                   </div>
-               </div><br/>
-
-               <div class="col-md-4">
-                   <label for="validationCustom02" class="form-label">Subject</label>
-                   <input type="text" class="form-control" value="Government" id="validationCustom02"  disabled required>
-                   <div class="valid-feedback">
-                       Looks good!
-                   </div>
-               </div>
-               <div class="col-md-4">
-                   <label for="validationCustom02" class="form-label">Grade</label>
-                   <select class="form-control" id="validationCustom02"  required>
-                       <option value="">Select</option>
-                       <option>A1</option>
-                       <option>B2</option>
-                       <option>B3</option>
-                       <option>C4</option>
-                       <option>C5</option>
-                       <option>C6</option>
-                       <option>D7</option>
-                       <option>E8</option>
-                       <option>P</option>
-                       <option>F</option>
-                   </select>
-
-                   <div class="valid-feedback">
-                       Looks good!
-                   </div>
-                   <div class="invalid-feedback">
-                       select a valid grade
-                   </div>
-               </div><br/>
+                        <select th:field="${dto.english}" class="form-control" id="validationCustom02" required>
+                            <option th:value="A">A</option>
+                            <option th:value="B">B</option>
+                            <option th:value="C">C</option>
+                            <option th:value="D">D</option>
+                            <option th:value="E">E</option>
+                            <option th:value="P">P</option>
+                            <option th:value="F">F</option>
+                        </select>
 
 
+                     <div class="valid-feedback">
+                         Looks good!
+                     </div>
+                     <div class="invalid-feedback">
+                         select a valid grade
+                     </div>
+                 </div><br/>
+
+                 <div class="col-md-4">
+                  <label for="validationCustom02" class="form-label">Subject</label>
+                  <input type="text" class="form-control" value="Mathematics" id="validationCustom02"  disabled required>
+                  <div class="valid-feedback">
+                      Looks good!
+                  </div>
+              </div>
+              <div class="col-md-4">
+                  <label for="validationCustom02" class="form-label">Grade</label>
+                  <select th:field="${dto.maths}" class="form-control" id="validationCustom02" required>
+                      <option th:value="A">A</option>
+                      <option th:value="B">B</option>
+                      <option th:value="C">C</option>
+                      <option th:value="D">D</option>
+                      <option th:value="E">E</option>
+                      <option th:value="P">P</option>
+                      <option th:value="F">F</option>
+                  </select>
+
+
+                  <div class="valid-feedback">
+                      Looks good!
+                  </div>
+                  <div class="invalid-feedback">
+                      select a valid grade
+                  </div>
+              </div><br/>
+
+              <div class="col-md-4">
+                  <label for="validationCustom02" class="form-label">Subject</label>
+                  <input type="text" class="form-control" value="Economics" id="validationCustom02"  disabled required>
+                  <div class="valid-feedback">
+                      Looks good!
+                  </div>
+              </div>
+              <div class="col-md-4">
+                  <label for="validationCustom02" class="form-label">Grade</label>
+                  <select th:field="${dto.economics}" class="form-control" id="validationCustom02" required>
+                      <option th:value="A">A</option>
+                      <option th:value="B">B</option>
+                      <option th:value="C">C</option>
+                      <option th:value="D">D</option>
+                      <option th:value="E">E</option>
+                      <option th:value="P">P</option>
+                      <option th:value="F">F</option>
+                  </select>
+
+
+                  <div class="valid-feedback">
+                      Looks good!
+                  </div>
+                  <div class="invalid-feedback">
+                      select a valid grade
+                  </div>
+              </div><br/>
+
+              <div class="col-md-4">
+                  <label for="validationCustom02" class="form-label">Subject</label>
+                  <input type="text" class="form-control" value="Civic" id="validationCustom02"  disabled required>
+                  <div class="valid-feedback">
+                      Looks good!
+                  </div>
+              </div>
+              <div class="col-md-4">
+                  <label for="validationCustom02" class="form-label">Grade</label>
+                  <select th:field="${dto.civic}" class="form-control" id="validationCustom02" required>
+                      <option th:value="A">A</option>
+                      <option th:value="B">B</option>
+                      <option th:value="C">C</option>
+                      <option th:value="D">D</option>
+                      <option th:value="E">E</option>
+                      <option th:value="P">P</option>
+                      <option th:value="F">F</option>
+                  </select>
+
+
+                  <div class="valid-feedback">
+                      Looks good!
+                  </div>
+                  <div class="invalid-feedback">
+                      select a valid grade
+                  </div>
+              </div><br/>
+
+              <div class="col-md-4">
+                  <label for="validationCustom02" class="form-label">Subject</label>
+                  <input type="text" class="form-control" value="CRS" id="validationCustom02"  disabled required>
+                  <div class="valid-feedback">
+                      Looks good!
+                  </div>
+              </div>
+              <div class="col-md-4">
+                  <label for="validationCustom02" class="form-label">Grade</label>
+                  <select th:field="${dto.crs}" class="form-control" id="validationCustom02" required>
+                      <option th:value="A">A</option>
+                      <option th:value="B">B</option>
+                      <option th:value="C">C</option>
+                      <option th:value="D">D</option>
+                      <option th:value="E">E</option>
+                      <option th:value="P">P</option>
+                      <option th:value="F">F</option>
+                  </select>
+
+                  <div class="valid-feedback">
+                      Looks good!
+                  </div>
+                  <div class="invalid-feedback">
+                      select a valid grade
+                  </div>
+              </div><br/>
+
+              <div class="col-md-4">
+                  <label for="validationCustom02" class="form-label">Subject</label>
+                  <input type="text" class="form-control" value="Literature" id="validationCustom02"  disabled required>
+                  <div class="valid-feedback">
+                      Looks good!
+                  </div>
+              </div>
+              <div class="col-md-4">
+                  <label for="validationCustom02" class="form-label">Grade</label>
+                  <select th:field="${dto.lit}" class="form-control" id="validationCustom02" required>
+                      <option th:value="A">A</option>
+                      <option th:value="B">B</option>
+                      <option th:value="C">C</option>
+                      <option th:value="D">D</option>
+                      <option th:value="E">E</option>
+                      <option th:value="P">P</option>
+                      <option th:value="F">F</option>
+                  </select>
+
+                  <div class="valid-feedback">
+                      Looks good!
+                  </div>
+                  <div class="invalid-feedback">
+                      select a valid grade
+                  </div>
+              </div><br/>
+
+              <div class="col-md-4">
+                  <label for="validationCustom02" class="form-label">Subject</label>
+                  <input type="text" class="form-control" value="Government" id="validationCustom02"  disabled required>
+                  <div class="valid-feedback">
+                      Looks good!
+                  </div>
+              </div>
+              <div class="col-md-4">
+                  <label for="validationCustom02" class="form-label">Grade</label>
+                  <select th:field="${dto.govt}" class="form-control" id="validationCustom02" required>
+                      <option th:value="A">A</option>
+                      <option th:value="B">B</option>
+                      <option th:value="C">C</option>
+                      <option th:value="D">D</option>
+                      <option th:value="E">E</option>
+                      <option th:value="P">P</option>
+                      <option th:value="F">F</option>
+                  </select>
+
+                  <div class="valid-feedback">
+                      Looks good!
+                  </div>
+                  <div class="invalid-feedback">
+                      select a valid grade
+                  </div>
+              </div><br/>
+
+              <div class="col-md-4">
+                  <label for="validationCustom02" class="form-label">WAEC RESULT (jpg or png MAX 3mb)</label>
+                  <input th:field="${dto.waec_result}" type="file" class="form-control" id="validationCustom02"  required>
+                  <div class="invalid-feedback">
+                      Please provide a valid image.
+                  </div>
+                  <div class="valid-feedback">
+                      Looks good!
+                  </div>
+              </div>
                <div class="col-12">
                    <div class="form-check">
                        <input class="form-check-input" type="checkbox" value="" id="invalidCheck" required>
