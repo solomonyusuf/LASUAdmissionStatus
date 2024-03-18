@@ -28,6 +28,8 @@ public class RegisterStudents {
     @Autowired
     private FileStorageService fileStorageService;
 
+    private Student tracker;
+
     @GetMapping({"/",""})
     public String Home(Model model)
     {
@@ -67,6 +69,7 @@ public class RegisterStudents {
             formEntity.setCrs(dto.getCrs());
             formEntity.setLit(dto.getLit());
             formEntity.setGovt(dto.getGovt());
+            formEntity.setYoruba(dto.getYoruba());
 
             String imageName = fileStorageService.storeFile(dto.image);
             String imageUrl = ServletUriComponentsBuilder.fromCurrentContextPath()
@@ -92,12 +95,12 @@ public class RegisterStudents {
 
 
             // Save form entity to the database
-            _student.save(formEntity);
+            tracker = _student.save(formEntity);
         }
         catch(Exception ex)
         {
             System.out.println(ex);
         }
-        return "redirect:/all-students";
+        return "redirect:/detail/view?id="+ tracker.getId();
     }
 }

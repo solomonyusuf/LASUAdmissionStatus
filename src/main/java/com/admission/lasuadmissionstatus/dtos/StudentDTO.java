@@ -35,6 +35,14 @@ public class StudentDTO {
         return name;
     }
 
+    public String getYoruba() {
+        return yoruba;
+    }
+
+    public void setYoruba(String yoruba) {
+        this.yoruba = yoruba;
+    }
+
     public void setName(String name) {
         this.name = name;
     }
@@ -46,6 +54,7 @@ public class StudentDTO {
     public void setSoo(String soo) {
         this.soo = soo;
     }
+    public String yoruba;
 
     public String getLga() {
         return lga;

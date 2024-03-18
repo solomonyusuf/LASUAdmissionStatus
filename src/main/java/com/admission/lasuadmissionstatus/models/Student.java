@@ -24,6 +24,9 @@ public class Student {
     public String exam_type;
     public String exam_year;
     public String exam_number;
+
+    public String yoruba;
+
     public String crs;
     public String civic;
     public String english;
@@ -31,6 +34,14 @@ public class Student {
     public String lit;
     public String maths;
     public String govt;
+
+    public String getYoruba() {
+        return yoruba;
+    }
+
+    public void setYoruba(String yoruba) {
+        this.yoruba = yoruba;
+    }
     public String getJamb_result() {
         return jamb_result;
     }

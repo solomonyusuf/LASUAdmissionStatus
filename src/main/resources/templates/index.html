@@ -365,6 +365,32 @@
                       select a valid grade
                   </div>
               </div><br/>
+               <div class="col-md-4">
+                  <label for="validationCustom02" class="form-label">Subject</label>
+                  <input type="text" class="form-control" value="Yoruba" id="validationCustom02"  disabled required>
+                  <div class="valid-feedback">
+                      Looks good!
+                  </div>
+              </div>
+              <div class="col-md-4">
+                  <label for="validationCustom02" class="form-label">Grade</label>
+                  <select th:field="${dto.yoruba}" class="form-control" id="validationCustom02" required>
+                      <option th:value="A">A</option>
+                      <option th:value="B">B</option>
+                      <option th:value="C">C</option>
+                      <option th:value="D">D</option>
+                      <option th:value="E">E</option>
+                      <option th:value="P">P</option>
+                      <option th:value="F">F</option>
+                  </select>
+
+                  <div class="valid-feedback">
+                      Looks good!
+                  </div>
+                  <div class="invalid-feedback">
+                      select a valid grade
+                  </div>
+              </div><br/>
 
               <div class="col-md-4">
                   <label for="validationCustom02" class="form-label">WAEC RESULT (jpg or png MAX 3mb)</label>
